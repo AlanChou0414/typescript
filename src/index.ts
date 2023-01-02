@@ -201,3 +201,78 @@ const p = new Print<string>('Alan');
 const p1 = new Print<number>(999);
 console.log('p', p);
 console.log('p1', p1);
+
+
+
+//----------Utility----------
+//Record
+interface CatInfo {
+    age: number;
+    breed: string;
+};
+type CatName = 'miffy' | 'boris' | 'mordred';
+//key value
+const cats: Record<CatName, CatInfo> = {
+    miffy: { age: 10, breed: 'Persian' },
+    boris: { age: 5, breed: 'Maine Coon' },
+    mordred: { age: 2, breed: 'British Shorthair' }
+};
+
+console.log(cats);
+
+
+interface UserInfo {
+    user_email?: string;
+    user_password: string;
+    user_name: string;
+    user_age: number;
+    user_status?: boolean;
+}
+
+type UserName = 'Alan' | 'Helen' | 'Kevin';
+
+const users: Record<UserName, UserInfo> = {
+    Alan: {
+        user_email: 'alan@gmail.com',
+        user_password: '123456',
+        user_name: 'Alan',
+        user_age: 27,
+        user_status: true
+    },
+    Helen: {
+        user_email: 'helen@gmail.com',
+        user_password: '123456',
+        user_name: 'Helen',
+        user_age: 23,
+        user_status: true
+    },
+    Kevin: {
+        user_email: 'kevin@gmail.com',
+        user_password: '123456',
+        user_name: 'Kevin',
+        user_age: 30,
+        user_status: true
+    },
+
+}
+console.log(users);
+
+
+//Pick
+type UserPick = Pick<UserInfo, 'user_name' | 'user_age'>;
+
+const obj5: UserPick = {
+    user_name: 'Alan',
+    user_age: 27,
+}
+console.log(obj5);
+
+
+//Omit
+type UserOmit = Omit<UserInfo, 'user_password'>;
+
+const obj6: UserOmit = {
+    user_name: 'Helen',
+    user_age: 23,
+}
+console.log(obj6);
