@@ -1,3 +1,7 @@
+const aryMap = <T>(ary: T[]) => (
+  ary.map(item => console.log(item))
+)
+
 // API 01
 const URL01: string = 'https://randomuser.me/api/'
 type UserDataType = {
@@ -30,7 +34,7 @@ type JokeDataType = {
     const res = await fetch(URL02)
     const data = await res.json() as JokeDataType
     const { setup, punchline, id } = data
-    // console.log({ setup, punchline, id });
+    // console.log({ setup, punchline, id })
   } catch (err) {
     throw err
   }
@@ -51,14 +55,11 @@ interface Entries {
     Category: string
   }[]
 };
-const entriesMap = (ary: Entries['entries']) => (
-  ary.map(item => console.log(item))
-)
 ~(async () => {
   try {
     const res = await fetch(URL03)
     const data = await res.json() as Entries
-    // return entriesMap(data.entries)
+    // return aryMap(data.entries)
   } catch (err) {
     throw err
   }
@@ -73,14 +74,11 @@ interface Country {
     probability: number
   }[]
 }
-const countryMap = (ary: Country['country']) => (
-  ary.map(item => console.log(item))
-)
 ~(async () => {
   try {
     const res = await fetch(URL04)
     const data = await res.json() as Country
-    // return countryMap(data.country)
+    // return aryMap(data.country)
   } catch (err) {
     throw err
   }
@@ -99,14 +97,11 @@ interface DataUSA {
     "Slug Nation": string
   }[]
 }
-const DataUSAMap = (ary: DataUSA['data']) => (
-  ary.map(item => console.log(item))
-)
 ~(async () => {
   try {
     const res = await fetch(URL05)
-    const data = await res.json()
-    // return DataUSAMap(data.data)
+    const data = await res.json() as DataUSA
+    return aryMap(data.data)
   } catch (err) {
     throw err
   }
