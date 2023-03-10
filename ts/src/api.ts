@@ -1,4 +1,4 @@
-const aryMap = <T>(ary: T[]) => (
+const aryMap = <T extends any[]>(ary: T) => (
   ary.map(item => console.log(item))
 )
 
@@ -101,7 +101,7 @@ interface DataUSA {
   try {
     const res = await fetch(URL05)
     const data = await res.json() as DataUSA
-    return aryMap(data.data)
+    // return aryMap(data.data)
   } catch (err) {
     throw err
   }

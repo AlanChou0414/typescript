@@ -66,7 +66,7 @@ const URL05 = 'https://datausa.io/api/data?drilldowns=Nation&measures=Population
     try {
         const res = yield fetch(URL05);
         const data = yield res.json();
-        return aryMap(data.data);
+        // return aryMap(data.data)
     }
     catch (err) {
         throw err;
